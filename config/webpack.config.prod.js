@@ -118,7 +118,9 @@ module.exports = {
           {
             options: {
               formatter: eslintFormatter,
-              
+              plugins: [
+                ['import', { libraryName: 'antd', style: 'css' }],
+              ],
             },
             loader: require.resolve('eslint-loader'),
           },

@@ -1,0 +1,19 @@
+.home {
+    width: 1024px;
+    height: 900px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    header {
+        height: 80px;
+        background-color: #eee;
+        position: relative;
+        .sign_in_icon {
+            position: absolute;
+            right: 40px;
+            top: 20px;
+        }
+    }
+    .search_tree {
+        padding: 40px;
+    }
+}
