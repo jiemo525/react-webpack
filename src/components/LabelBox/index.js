@@ -80,12 +80,12 @@ class DynamicFieldSet extends React.Component {
               message: "未填写",
             }],
           })(
-            <Input placeholder="打标签" style={{ width: '51px', marginRight: 8, fontSize: '8px' }} />
+            <Input placeholder="打标签" style={{ width: '80px', marginRight: 8, fontSize: '8px' }} />
           )}
           {keys.length > 1 ? (
             <Icon
               className="dynamic-delete-button"
-              type="minus-circle-o"
+              type="close-circle-o"
               disabled={keys.length === 1}
               onClick={() => this.remove(k)}
             />
