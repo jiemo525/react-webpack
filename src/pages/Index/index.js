@@ -12,8 +12,8 @@ class App extends React.Component {
         <div className="search_tree">
           <SearchTree />
         </div>
-        <div>
-          <LabelBox />
+        <div  className="label">
+          <span className="label_title">标签:</span><LabelBox />
         </div>
       </div>
     );

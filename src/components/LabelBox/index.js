@@ -68,7 +68,7 @@ class DynamicFieldSet extends React.Component {
       return (
         <FormItem
           {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-          label={index === 0 ? '标签' : ''}
+          
           required={false}
           key={k}
         >
@@ -77,10 +77,10 @@ class DynamicFieldSet extends React.Component {
             rules: [{
               required: true,
               whitespace: true,
-              message: "Please input passenger's name or delete this field.",
+              message: "未填写",
             }],
           })(
-            <Input placeholder="打标签" style={{ width: '50px', marginRight: 8 }} />
+            <Input placeholder="打标签" style={{ width: '51px', marginRight: 8, fontSize: '8px' }} />
           )}
           {keys.length > 1 ? (
             <Icon
@@ -94,11 +94,11 @@ class DynamicFieldSet extends React.Component {
       );
     });
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="labelbox">
         {formItems}
         <FormItem {...formItemLayoutWithOutLabel}>
-          <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-            <Icon type="plus" /> Add field
+          <Button type="dashed" onClick={this.add} style={{ width: '60px' }}>
+            <Icon type="plus" /> 
           </Button>
         </FormItem>
         <FormItem {...formItemLayoutWithOutLabel}>
