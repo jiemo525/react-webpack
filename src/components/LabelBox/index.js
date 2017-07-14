@@ -1,22 +1,22 @@
+/**
+ * 
+ */
 import React from 'react';
+import { Form, Input, Icon, Button } from 'antd';
 import './index.scss';
 
-import { Form, Input, Icon, Button } from 'antd';
 const FormItem = Form.Item;
-
 let uuid = 0;
 
 class DynamicFieldSet extends React.Component {
   remove = (k) => {
     const { form } = this.props;
-    // can use data-binding to get
     const keys = form.getFieldValue('keys');
-    // We need at least one passenger
+  
     if (keys.length === 1) {
       return;
     }
 
-    // can use data-binding to set
     form.setFieldsValue({
       keys: keys.filter(key => key !== k),
     });
@@ -25,11 +25,9 @@ class DynamicFieldSet extends React.Component {
   add = () => {
     uuid++;
     const { form } = this.props;
-    // can use data-binding to get
     const keys = form.getFieldValue('keys');
     const nextKeys = keys.concat(uuid);
-    // can use data-binding to set
-    // important! notify form to detect changes
+    
     form.setFieldsValue({
       keys: nextKeys,
     });
@@ -62,6 +60,7 @@ class DynamicFieldSet extends React.Component {
         sm: { span: 20, offset: 4 },
       },
     };
+
     getFieldDecorator('keys', { initialValue: [] });
     const keys = getFieldValue('keys');
     const formItems = keys.map((k, index) => {
@@ -93,6 +92,7 @@ class DynamicFieldSet extends React.Component {
         </FormItem>
       );
     });
+
     return (
       <Form onSubmit={this.handleSubmit} className="labelbox">
         {formItems}
@@ -108,5 +108,7 @@ class DynamicFieldSet extends React.Component {
     );
   }
 }
+
 const LabelBox = Form.create()(DynamicFieldSet);
+
 export default LabelBox;

@@ -1,3 +1,6 @@
+/**
+ * 搜索商品树组件
+ */
 import React from 'react';
 import { Tree, Input } from 'antd';
 
@@ -18,7 +21,6 @@ const gData = [{
     }]
   },]
 },];
-
 const dataList = [];
 const generateList = (data) => {
   for (let i = 0; i < data.length; i++) {
@@ -31,6 +33,7 @@ const generateList = (data) => {
     }
   }
 };
+
 generateList(gData);
 
 const getParentKey = (key, tree) => {
@@ -66,33 +69,30 @@ class SearchTree extends React.Component {
   }
   onChange = (e) => {
     const value = e.target.value;
-    
     const expandedKeys = dataList.map((item) => {
-      // let regex = new RegExp(value, 'ig');
-      // console.log('regex%o:%o',item.title.search(regex)&& value !== '',item.title.indexOf(value)&& value !== '');
-    if (item.title.indexOf(value) > -1 && value !== '') {
-      // if (item.title.search(regex) && value !== '') {
-        return getParentKey(item.key, gData);
-      }
-      return null;
+      if (item.title.indexOf(value) > -1 && value !== '') {
+        // if (item.title.search(regex) && value !== '') {
+          return getParentKey(item.key, gData);
+        }
+        return null;
     }).filter((item, i, self) => item && self.indexOf(item) === i);
-    this.setState({
-      expandedKeys,
-      searchValue: value,
-      autoExpandParent: true,
+      this.setState({
+        expandedKeys,
+        searchValue: value,
+        autoExpandParent: true,
     });
-    console.log(expandedKeys);
   }
+
   render() {
     const { searchValue, expandedKeys, autoExpandParent } = this.state;
     const loop = data => data.map((item) => {
       let index = -1;
+
       if(searchValue !== ''){
         index = item.title.search(searchValue);
       }
       const beforeStr = item.title.substr(0, index);
       const afterStr = item.title.substr(index + searchValue.length);
-
       const title = index > -1 ? (
         <span>
           {beforeStr}
@@ -100,6 +100,7 @@ class SearchTree extends React.Component {
           {afterStr}
         </span>
       ) : <span>{item.title}</span>;
+
       if (item.children) {
         return (
           <TreeNode key={item.key} title={title}>
@@ -107,8 +108,10 @@ class SearchTree extends React.Component {
           </TreeNode>
         );
       }
+
       return <TreeNode key={item.key} title={title} />;
     });
+
     return (
       <div>
         <Search style={{ width: 300 }} placeholder="Search" onChange={this.onChange} />

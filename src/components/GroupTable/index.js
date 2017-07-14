@@ -1,78 +1,39 @@
+/**
+ * 表格
+ * dataSource
+ * number
+ */
 import React from 'react';
+import { Table, Button, Popconfirm } from 'antd';
+import EditableCell from '../EditableCell/index';
 import './index.scss';
-
-import { Table, Input, Icon, Button, Popconfirm } from 'antd';
-
-class EditableCell extends React.Component {
-  state = {
-    value: this.props.value,
-    editable: false,
-  }
-  handleChange = (e) => {
-    const value = e.target.value;
-    this.setState({ value });
-  }
-  check = () => {
-    this.setState({ editable: false });
-    if (this.props.onChange) {
-      this.props.onChange(this.state.value);
-    }
-  }
-  edit = () => {
-    this.setState({ editable: true });
-  }
-  render() {
-    const { value, editable } = this.state;
-    return (
-      <div className="editable-cell">
-        {
-          editable ?
-            <div className="editable-cell-input-wrapper">
-              <Input
-                value={value}
-                onChange={this.handleChange}
-                onPressEnter={this.check}
-              />
-              <Icon
-                type="check"
-                className="editable-cell-icon-check"
-                onClick={this.check}
-              />
-            </div>
-            :
-            <div className="editable-cell-text-wrapper">
-              {value || ' '}
-              <Icon
-                type="edit"
-                className="editable-cell-icon"
-                onClick={this.edit}
-              />
-            </div>
-        }
-      </div>
-    );
-  }
-}
 
 class GroupTable extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+        dataSource: this.props.dataSource,
+        count: this.props.dataSource.length,
+    }
+    let that = this;
     this.columns = [{
         title: '属性名称',
         dataIndex: 'name',
         width: '80%',
-        sorter: (a, b) => a.name.length - b.name.length,
         render: (text, record, index) => (
             <EditableCell
                 value={text}
                 onChange={this.onCellChange(index, 'name')}
+                clickUp={this.clickUp.bind(that, record, index)}
+                clickDown={this.clickDown.bind(that, record, index)}
+                clickH={this.clickH}
             />
         ),
     },{
         title: '删除',
         render: (text, record, index) => {
             return (
-                this.props.dataSource.length > 1 ?
+                this.state.count > 1 ?
                 (
                     <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(index)}>
                         <Button shape="circle" icon="minus" />
@@ -81,13 +42,44 @@ class GroupTable extends React.Component {
             );
         },
     },];
-    this.state = {
-        selectStyle: {
-            
-        },
-        dataSource: [],
-    }
   }
+
+  clickH = (event) => {
+    event.target.parentNode.parentNode.parentNode.style.backgroundColor = "yellow";
+    console.log(event.target.parentNode.parentNode.parentNode);
+  }
+
+  clickOnRow = (record, index, event) => {
+    // let row = document.getElementsByClassName('ant-table-tbody');
+    // row[this.props.number].children[index].style.backgroundColor = "pink";
+    // row[this.props.number].style.backgroundColor = "yellow";
+    
+    // console.log(event.target.parentNode);
+  }
+
+  clickUp = (record, index) => {
+    let datas = this.state.dataSource;
+    if(index -1 > -1) {
+      let data = datas[index - 1];
+      datas[index] = data;
+      datas[index - 1] = record;
+    }
+      
+    this.setState({dataSource: datas});
+  }
+
+  clickDown = (record, index) => {
+    let datas = this.state.dataSource;
+    
+    if(index + 1 < this.state.count) {
+      let data = datas[index + 1];
+      datas[index] = data;
+      datas[index + 1] = record;
+    }
+      
+    this.setState({dataSource: datas});
+  }
+
   onCellChange = (index, key) => {
     return (value) => {
       const dataSource = [...this.props.dataSource];
@@ -95,32 +87,31 @@ class GroupTable extends React.Component {
       this.setState({ dataSource });
     };
   }
-  clickRow = (record, index, event) => {
-      console.log(event.target.parent);
-    //   if(event.target.className===)
-    event.target.style.backgroundColor = 'green';
-  }
+  
   onDelete = (index) => {
-    const dataSource = [...this.props.dataSource];
+    const dataSource = [...this.state.dataSource];
+
     dataSource.splice(index, 1);
     this.setState({ dataSource });
   }
+
   handleAdd = () => {
-    const { dataSource } = this.props;
-    const count = dataSource.length;
-    console.log(count);
+    const { dataSource, count } = this.state;
     const newData = {
       key: count,
       name: ``,
     };
+
     this.setState({
       dataSource: [...dataSource, newData],
       count: count + 1,
     });
   }
+
   render() {
-    const { dataSource } = this.props;
+    const {dataSource} = this.state;
     const columns = this.columns;
+
     return (
       <div className="group_table">
         <Table bordered 
@@ -128,12 +119,11 @@ class GroupTable extends React.Component {
             columns={columns}
             pagination={false}
             title={() => '属性表'}
-            onRowClick={this.clickRow}
+            onRowClick={this.clickOnRow}
         />
         <div className="plus">
             <Button shape="circle" icon="plus" onClick={this.handleAdd} className="plus_button"/>
         </div>
-        
       </div>
     );
   }

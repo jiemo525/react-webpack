@@ -1,5 +1,8 @@
+/**
+ * 后台首页
+ */
 import React from 'react';
-import { Avatar } from 'antd';
+import { Avatar, Card } from 'antd';
 import SearchTree from '../../components/SearchTree/index';
 import LabelBox from '../../components/LabelBox/index';
 import GroupTable from '../../components/GroupTable/index';
@@ -38,22 +41,29 @@ class App extends React.Component {
       <div className="home">
         <header><Avatar size="large" icon="user" className="sign_in_icon"/></header>
         <div className="search_tree">
-          <SearchTree />
+          <Card>
+            <SearchTree />
+          </Card>
         </div>
         <div className="label">
-          <span className="label_title">标签:</span><LabelBox />
+          <Card>
+            <span className="label_title">标签:</span><LabelBox />
+          </Card>
         </div>
         <div className="groups">
+          <Card>
              <div className="group">
-                <GroupTable dataSource={dataSource1} isLeaf={false}/>
+                <GroupTable dataSource={dataSource1} number={0}/>
             </div>
             <div className="group">
-                <GroupTable dataSource={dataSource2} isLeaf={false}/>
+                <GroupTable dataSource={dataSource2} number={1}/>
             </div>
             <div className="group">
-                <GroupTable dataSource={dataSource3} isLeaf={true}/>
+                <GroupTable dataSource={dataSource3} number={2}/>
             </div>
+          </Card>
         </div>
+        
       </div>
     );
   }
