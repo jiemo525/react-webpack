@@ -18,6 +18,9 @@ class App extends React.Component {
       }, {
         key: '1',
         name: '家电',
+      }, {
+        key: '2',
+        name: '智能家居',
       }],
       dataSource2: [{
         key: '0-0',
@@ -50,7 +53,7 @@ class App extends React.Component {
             <span className="label_title">标签:</span><LabelBox />
           </Card>
         </div>
-        <div className="groups">
+        <div className="groups clearfix">
           <Card>
              <div className="group">
                 <GroupTable dataSource={dataSource1} number={0}/>

@@ -14,6 +14,7 @@ class GroupTable extends React.Component {
     this.state = {
         dataSource: this.props.dataSource,
         count: this.props.dataSource.length,
+        active: 0,
     }
     let that = this;
     this.columns = [{
@@ -26,7 +27,7 @@ class GroupTable extends React.Component {
                 onChange={this.onCellChange(index, 'name')}
                 clickUp={this.clickUp.bind(that, record, index)}
                 clickDown={this.clickDown.bind(that, record, index)}
-                clickH={this.clickH}
+                active={this.state.active===index}
             />
         ),
     },{
@@ -44,17 +45,8 @@ class GroupTable extends React.Component {
     },];
   }
 
-  clickH = (event) => {
-    event.target.parentNode.parentNode.parentNode.style.backgroundColor = "yellow";
-    console.log(event.target.parentNode.parentNode.parentNode);
-  }
-
   clickOnRow = (record, index, event) => {
-    // let row = document.getElementsByClassName('ant-table-tbody');
-    // row[this.props.number].children[index].style.backgroundColor = "pink";
-    // row[this.props.number].style.backgroundColor = "yellow";
-    
-    // console.log(event.target.parentNode);
+    this.setState({active: index});
   }
 
   clickUp = (record, index) => {

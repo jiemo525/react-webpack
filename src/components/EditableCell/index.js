@@ -36,7 +36,9 @@ class EditableCell extends React.Component {
     const { value, editable } = this.state;
 
     return (
-      <div className="editable-cell" onClick={this.props.clickH}>
+      <div className="editable-cell"
+        style={this.props.active?{backgroundColor: '#d2eafb'}:{backgroundColor: '#fff'}}
+      >
         {
           editable ?
             <div className="editable-cell-input-wrapper" >
