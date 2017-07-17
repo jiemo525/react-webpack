@@ -6,6 +6,7 @@ import { Avatar, Card } from 'antd';
 import SearchTree from '../../components/SearchTree/index';
 import LabelBox from '../../components/LabelBox/index';
 import GroupTable from '../../components/GroupTable/index';
+import '../../components/TestData/index'
 import './index.scss';
 
 class App extends React.Component {
