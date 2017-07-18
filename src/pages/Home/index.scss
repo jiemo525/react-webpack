@@ -1,37 +1,47 @@
 .home {
-    width: 1024px;
-    height: 900px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
+    
     header {
-        height: 80px;
-        background-color: #eee;
+        height: 50px;
+        background-color: #fafafa;
         position: relative;
+        padding: 0 10px;
         .sign_in_icon {
             position: absolute;
             right: 40px;
-            top: 20px;
+            top: 5px;
         }
     }
-    .search_tree {
-        padding: 30px;
-    }
-    .label {
-        padding: 30px;
-        .label_title {
-            font-size: 16px;
-            display: inline-block;
-            width: 50px;
-            line-height: 32px;
-            vertical-align: top;
-            
+    .content {
+        width: 1024px;
+        height: 900px;
+        border: 1px solid #ddd;
+        margin: 0 auto;
+        padding: 50px 31px;
+        .search_tree {
+            padding: 30px;
         }
-    }
-    .groups {
-        padding: 10px 30px;
-        .group {
-            float: left;
+        .label {
+            padding: 30px;
+            .label_title {
+                font-size: 16px;
+                display: inline-block;
+                width: 50px;
+                line-height: 32px;
+                vertical-align: top;
+                
+            }
         }
+        .groups {
+            padding: 10px 30px;
+            .group {
+                float: left;
+            }
+        }
+        
+    }
+    footer {
+        height: 50px;
+        background-color: #fafafa;
     }
     
 }

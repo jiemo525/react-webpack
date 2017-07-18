@@ -1,10 +1,44 @@
 .sign_in_box {
-    .card {
+    .logo {
+        padding-top: 50px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .content {
+        width: 960px;
+        margin: 65px auto 0;
+
+        .message {
+    
+            h3 {
+              font-size: 26px;
+              font-weight: normal;
+            }
+            h4 {
+                font-size: 20px;
+                font-weight: normal;
+            }
+            p {
+                font-size: 16px;
+                width: 420px;
+                display: inline-block;
+            }
+            float: left;
+        }
+    }
+
+    .sign_in {
         width: 370px;
-        position: fixed;
-        top: 30%;
-        left: 40%;
-        background-color: #d2eafb !important;
+        padding: 0px 0px 20px;
+        float: right;
+        border: 1px solid #f0f0f0;
+        .sign_in_top {
+            display: inline-block;
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 10px 0 ;
+        }
     }
 
 }
