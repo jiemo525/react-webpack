@@ -14,7 +14,6 @@
   opacity: 0.5;
 }
 .labelbox {
-  display: inline-block;
   .ant-row {
     display: inline-block;
     width: 100px;
@@ -27,6 +26,9 @@
       position: absolute;
       top: 4px;
       right: 8px;
+    }
+    .ant-form-item-control:nth(3) {
+      display: inline-block;
     }
   }
 }

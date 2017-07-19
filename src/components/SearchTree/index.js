@@ -120,6 +120,7 @@ class SearchTree extends React.Component {
           onSelect={this.onSelect}
           expandedKeys={expandedKeys}
           autoExpandParent={autoExpandParent}
+          className="search_tree"
         >
           {loop(gData)}
         </Tree>

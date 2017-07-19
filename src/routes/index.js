@@ -4,20 +4,25 @@ import App from '../pages/Home/index';
 import SignInPage from '../pages/SignInPage/index';
 import About from '../components/About/index';
 import LabelBox from '../components/LabelBox/index';
-import AddCategory from '../pages/AddCategory/index'
+import AddCategory from '../pages/AddCategory/index';
+import EditCategory from '../pages/AddCategory/index';
+import AddBrand from '../pages/AddBrand/index';
+import EditBrand from '../pages/EditBrand/index';
 
 const Routes = () => (
     <Router>
         <div>
-            <Route exact path="/" component={SignInPage}/>
-            <Route path="/home" component={App}/>
-            
-                <Switch>
-                    <Route exact path="/about" component={About}/>
-                    <Route path="/about/a" component={LabelBox}/>
-                    <Route path="/about/b" component={LabelBox}/>
-                </Switch>
-            <Route path="/addCategory" component={AddCategory}/>
+            <Route exact path="/login" component={SignInPage}/>
+            <Switch>
+                <Route exact path="/" component={App}/>
+                <Route path="/about" component={About}/>
+                <Route path="/about/a" component={LabelBox}/>
+                <Route path="/about/b" component={LabelBox}/>
+                <Route path="/addCategory" component={AddCategory}/>
+                <Route path="/editCategory" component={EditCategory}/>
+                <Route path="/addBrand" component={AddBrand}/>
+                <Route path="/editBrand" component={EditBrand}/>
+            </Switch>
             
         </div>
     </Router>

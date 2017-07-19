@@ -5,7 +5,7 @@ class About extends React.Component {
         return (
             <div>
                 About
-                {this.props.children}
+        
             </div>
         )
     }

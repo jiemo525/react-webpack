@@ -1,0 +1,45 @@
+header {
+    height: 50px;
+    background-color: #fafafa;
+    position: relative;
+
+    .sign_in_icon {
+        position: absolute;
+        right: 40px;
+        top: 5px;
+    }
+
+    .menu_icon {
+        width: 30px;
+        height: 30px;
+        padding: 3px 5px 7px;
+        display: inline-block;
+        margin: 5px 0 0 15px;
+
+        div {
+            width: 100%;
+            height: 2px;
+            border-bottom: 2px solid #111;
+            margin-top: 5px;
+        }
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+
+    
+}
+
+.ant-dropdown {
+    width: 238px;
+    padding: 10px;
+
+    .ant-dropdown-menu {
+        padding: 10px;
+
+        li {
+            font-size: 16px;
+        }
+    }
+}

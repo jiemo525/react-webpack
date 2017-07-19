@@ -6,6 +6,7 @@ import { Form, Input, Icon, Button } from 'antd';
 import './index.scss';
 
 const FormItem = Form.Item;
+const { TextArea } = Input;
 let uuid = 0;
 
 class DynamicFieldSet extends React.Component {
@@ -94,10 +95,36 @@ class DynamicFieldSet extends React.Component {
     });
 
     return (
-      <Form onSubmit={this.handleSubmit} className="labelbox">
-        {formItems}
+      <Form onSubmit={this.handleSubmit} >
+        <FormItem
+          {...formItemLayout}
+          label="类别名称"
+          hasFeedback
+        >
+          {getFieldDecorator('categoryName', {
+            rules: [{
+              required: true, message: 'Please input your E-mail!',
+            }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="类别描述"
+          hasFeedback
+        >
+          {getFieldDecorator('categoryDescribe', {
+            rules: [{
+              required: true, message: 'Please input your E-mail!',
+            }],
+          })(
+            <TextArea rows={4} />
+          )}
+        </FormItem>
+        <span className="labelbox">{formItems}</span>
         <FormItem {...formItemLayoutWithOutLabel}>
-          <Button type="dashed" onClick={this.add} style={{ width: '60px' }}>
+          <Button type="dashed" onClick={this.add} style={{ width: '60px' , display: 'inline-block'}} >
             <Icon type="plus" /> 
           </Button>
         </FormItem>

@@ -1,0 +1,20 @@
+.parent_subcategory_information {
+    margin-top: 20px;
+    
+    .add_subcategory_title {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .content_category_details {
+        width: 70%;
+        float: left;
+        font-size: 14px;
+        .content_btn {
+            margin-top: 10px;
+        }
+    }
+
+}

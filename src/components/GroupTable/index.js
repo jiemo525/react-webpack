@@ -103,6 +103,7 @@ class GroupTable extends React.Component {
   render() {
     const {dataSource} = this.state;
     const columns = this.columns;
+    const {titles} = this.props;
 
     return (
       <div className="group_table">
@@ -110,7 +111,7 @@ class GroupTable extends React.Component {
             dataSource={dataSource}
             columns={columns}
             pagination={false}
-            title={() => '属性表'}
+            title={() => titles}
             onRowClick={this.clickOnRow}
         />
         <div className="plus">
