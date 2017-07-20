@@ -45,10 +45,12 @@ class GroupTable extends React.Component {
     },];
   }
 
+  //点击单元格添加样式
   clickOnRow = (record, index, event) => {
     this.setState({active: index});
   }
 
+  //向上排序
   clickUp = (record, index) => {
     let datas = this.state.dataSource;
     if(index -1 > -1) {
@@ -60,6 +62,7 @@ class GroupTable extends React.Component {
     this.setState({dataSource: datas});
   }
 
+  //向下排序
   clickDown = (record, index) => {
     let datas = this.state.dataSource;
     
@@ -72,6 +75,7 @@ class GroupTable extends React.Component {
     this.setState({dataSource: datas});
   }
 
+  //修改单元格触发
   onCellChange = (index, key) => {
     return (value) => {
       let dataSource = [...this.props.dataSource];
@@ -84,6 +88,7 @@ class GroupTable extends React.Component {
     };
   }
   
+  //删除
   onDelete = (index) => {
     const dataSource = [...this.state.dataSource];
 
@@ -91,6 +96,7 @@ class GroupTable extends React.Component {
     this.setState({ dataSource });
   }
 
+  //添加单元格
   handleAdd = () => {
     const { dataSource, count } = this.state;
     const newData = {

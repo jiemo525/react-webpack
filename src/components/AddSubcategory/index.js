@@ -1,3 +1,6 @@
+/**
+ * 添加类别第三步
+ */
 import React from 'react';
 import { Card, Button } from 'antd';
 import LabelBox from '../../components/LabelBox/index';
