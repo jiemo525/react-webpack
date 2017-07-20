@@ -74,8 +74,12 @@ class GroupTable extends React.Component {
 
   onCellChange = (index, key) => {
     return (value) => {
-      const dataSource = [...this.props.dataSource];
-      dataSource[index][key] = value;
+      let dataSource = [...this.props.dataSource];
+      console.log('onCellChange %o:%o:%o:%o', dataSource, value, index);
+      if(value !== '')
+        dataSource[index][key] = value;
+      else value = '';
+      console.log('onCellChange %o', dataSource);
       this.setState({ dataSource });
     };
   }

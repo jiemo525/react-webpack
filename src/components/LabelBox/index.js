@@ -122,8 +122,12 @@ class DynamicFieldSet extends React.Component {
             <TextArea rows={4} />
           )}
         </FormItem>
-        <span className="labelbox">{formItems}</span>
-        <FormItem {...formItemLayoutWithOutLabel}>
+        
+        <FormItem 
+          {...formItemLayout} 
+          label="类别关键字"
+        >
+          <span className="labelbox">{formItems}</span>
           <Button type="dashed" onClick={this.add} style={{ width: '60px' , display: 'inline-block'}} >
             <Icon type="plus" /> 
           </Button>

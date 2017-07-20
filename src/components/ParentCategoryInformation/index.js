@@ -1,3 +1,6 @@
+/**
+ * 添加类别 第二步
+ */
 import React from 'react';
 import { Card, Button } from 'antd';
 import './index.scss';
@@ -15,8 +18,8 @@ class ParentCategoryInformation extends React.Component {
     }
 
     render() {
+
         return (
-            
             <div className="parent_subcategory_information">
                 <Card>
                     <div className="add_subcategory_title">

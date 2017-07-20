@@ -20,11 +20,26 @@ class AddCategory extends React.Component {
         this.state = {
             category: '',
             subcategory: '',
+            gData: [{
+                key: '0',
+                title:'电子产品',
+                children: [{
+                    key: '0-0',
+                    title:'电脑',
+                    children: [{
+                    key: '0-0-0',
+                    title:'MACBOOK',
+                    },{
+                    key: '0-0-1',
+                    title:'MACBOOKPRO',
+                    }]
+                },]
+                },],
         }
     }
     render() {
         
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <div className="add_category">
                 <Header />
@@ -40,10 +55,16 @@ class AddCategory extends React.Component {
                            <p>输入类别ID、类别名称或关键字进行搜索并从搜索结果中选择类别。</p>
                         </div>
                         <div className="search">
-                            <SearchTree selectCategory={this.props.actions.selectCategory}/>
+                            <SearchTree gData={this.state.gData} selectCategory={this.props.actions.selectCategory}/>
                         </div>
                     </Card>
-                    {this.props.category[0]?<ParentCategoryInformation addSubcategory={this.props.actions.addSubcategory}/>:''}
+                    {this.props.category[0]?
+                        <ParentCategoryInformation 
+                            addSubcategory={this.props.actions.addSubcategory}
+                            subcategory={this.props.subcategory}
+                            gData={this.state.gData}
+                        />
+                        :''}
                     
                     {this.props.subcategory?<AddSubcategory />:''}
                 </div>
@@ -60,7 +81,6 @@ AddCategory.propTypes = {
 };
 
 function mapStateToProps(state, props) {
-    console.log(state);
   return {
     category: state.category,
     subcategory: state.subcategory

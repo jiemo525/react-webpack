@@ -16,6 +16,7 @@ class AddSubcategory extends React.Component {
         }
     }
     render() {
+        
         return (
             <div className="add_subcategory">
                 <Card>

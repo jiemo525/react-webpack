@@ -1,3 +1,6 @@
+/**
+ * 添加品牌页面
+ */
 import React from 'react';
 // import { Button, Card } from 'antd';
 import Header from '../../components/Header/index';
