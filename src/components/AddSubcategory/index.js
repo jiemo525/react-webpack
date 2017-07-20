@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import LabelBox from '../../components/LabelBox/index';
 import GroupTable from '../../components/GroupTable/index';
 import './index.scss';
@@ -40,6 +40,15 @@ class AddSubcategory extends React.Component {
                             <GroupTable dataSource={this.state.dataSource} titles='属性组'/>
                             <GroupTable dataSource={this.state.dataSource} titles='属性'/>
                             <GroupTable dataSource={this.state.dataSource} titles='属性值'/>
+                        </div>
+                    </div>
+                    <div className="second clearfix">
+                        <div className="content_promt_message">
+                            <p>完成添加</p>
+                            <p>确认无误后，点击保存，完成添加。</p>
+                        </div>
+                        <div className="content_category_details">
+                            <Button type="primary"  size="large">保存</Button>
                         </div>
                     </div>
                 </Card>

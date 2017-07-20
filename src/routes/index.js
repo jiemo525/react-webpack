@@ -12,9 +12,9 @@ import EditBrand from '../pages/EditBrand/index';
 const Routes = () => (
     <Router>
         <div>
-            <Route exact path="/login" component={SignInPage}/>
+            <Route exact path="/" component={SignInPage}/>
             <Switch>
-                <Route exact path="/" component={App}/>
+                <Route exact path="/home" component={App}/>
                 <Route path="/about" component={About}/>
                 <Route path="/about/a" component={LabelBox}/>
                 <Route path="/about/b" component={LabelBox}/>

@@ -128,9 +128,9 @@ class DynamicFieldSet extends React.Component {
             <Icon type="plus" /> 
           </Button>
         </FormItem>
-        <FormItem {...formItemLayoutWithOutLabel}>
+        {/* <FormItem {...formItemLayoutWithOutLabel}>
           <Button type="primary" htmlType="submit" size="large">Submit</Button>
-        </FormItem>
+        </FormItem> */}
       </Form>
     );
   }

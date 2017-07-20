@@ -15,7 +15,7 @@ class NormalLoginForm extends React.Component {
       if (!err) {
        if(values.userName==='123'&&values.password==='123') {
           console.log(values)
-          window.location = '/';
+          window.location = '/home';
        }
       } else {
           confirm({

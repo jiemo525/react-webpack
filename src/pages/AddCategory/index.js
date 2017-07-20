@@ -2,8 +2,11 @@
  * 添加类别页面
  * 
  */
-import React from 'react';
+import React , {PropTypes}from 'react';
 import { Card } from 'antd';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as selectCategoryActions from '../../actions/add-action.js';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import SearchTree from '../../components/SearchTree/index';
@@ -12,8 +15,16 @@ import AddSubcategory from '../../components/AddSubcategory/index';
 import './index.scss'
 
 class AddCategory extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            category: '',
+            subcategory: '',
+        }
+    }
     render() {
+        
+        console.log(this.props);
         return (
             <div className="add_category">
                 <Header />
@@ -29,11 +40,12 @@ class AddCategory extends React.Component {
                            <p>输入类别ID、类别名称或关键字进行搜索并从搜索结果中选择类别。</p>
                         </div>
                         <div className="search">
-                            <SearchTree />
+                            <SearchTree selectCategory={this.props.actions.selectCategory}/>
                         </div>
                     </Card>
-                    <ParentCategoryInformation />
-                    <AddSubcategory />
+                    {this.props.category[0]?<ParentCategoryInformation addSubcategory={this.props.actions.addSubcategory}/>:''}
+                    
+                    {this.props.subcategory?<AddSubcategory />:''}
                 </div>
                 
                 <Footer />
@@ -42,4 +54,23 @@ class AddCategory extends React.Component {
     }
 }
 
-export default AddCategory;
+
+AddCategory.propTypes = {
+  actions: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state, props) {
+    console.log(state);
+  return {
+    category: state.category,
+    subcategory: state.subcategory
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(selectCategoryActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddCategory);

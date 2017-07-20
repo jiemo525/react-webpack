@@ -57,16 +57,20 @@ class SearchTree extends React.Component {
     searchValue: '',
     autoExpandParent: true,
   }
+
   onExpand = (expandedKeys) => {
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
   }
+
   onSelect = (selectedKeys, info) => {
     console.log('onSelect', info);
     this.setState({ selectedKeys });
+    this.props.selectCategory(selectedKeys);
   }
+
   onChange = (e) => {
     const value = e.target.value;
     const expandedKeys = dataList.map((item) => {

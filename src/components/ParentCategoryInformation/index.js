@@ -9,6 +9,11 @@ class ParentCategoryInformation extends React.Component {
             name: '电脑',
         }
     }
+
+    clickAdd = () => {
+        this.props.addSubcategory(true);
+    }
+
     render() {
         return (
             
@@ -28,7 +33,7 @@ class ParentCategoryInformation extends React.Component {
                         <p>产品名称：{this.state.name}</p>
                         <p>产品名称：{this.state.name}</p>
                         
-                        <Button type="primary" className="content_btn">添加子类别</Button>
+                        <Button type="primary" className="content_btn" onClick={this.clickAdd}>添加子类别</Button>
                     </div>
                 </Card>
             </div>
