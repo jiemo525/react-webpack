@@ -1,5 +1,5 @@
 /**
- * 
+ * 添加类别 第三步表单
  */
 import React from 'react';
 import { Form, Input, Icon, Button } from 'antd';

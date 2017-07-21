@@ -1,3 +1,6 @@
+/**
+ * 页面尾部
+ */
 import React from 'react';
 import './index.scss';
 

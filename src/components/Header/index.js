@@ -1,3 +1,6 @@
+/**
+ * 页面头部
+ */
 import React from 'react';
 import { Icon, Menu, Dropdown } from 'antd';
 import { Link } from 'react-router-dom';
@@ -21,6 +24,7 @@ const menu = (
     <Menu.Item key="4">Help</Menu.Item>
   </Menu>
 );
+
 class Header extends React.Component {
     render() {
         return (
@@ -32,7 +36,6 @@ class Header extends React.Component {
                         <div></div>
                     </div>
                 </Dropdown>
-                
                 <Icon type="user" className="sign_in_icon" style={{color: '#49a9ee', fontSize: 30}} />
             </header>
         );

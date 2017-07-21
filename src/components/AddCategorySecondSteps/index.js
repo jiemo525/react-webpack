@@ -13,6 +13,7 @@ class AddCategorySecondSteps extends React.Component {
         }
     }
 
+    //点击添加显示第三步
     clickAdd = () => {
         this.props.addSubcategory(true);
     }
