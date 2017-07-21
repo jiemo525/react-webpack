@@ -1,2 +1,3 @@
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 export const ADD_SUBCATEGORY = 'ADD_SUBCATEGORY';
+export const G_DATA = 'G_DATA';

@@ -2,16 +2,17 @@
  * 添加类别页面
  * 
  */
-import React , {PropTypes}from 'react';
+import React from 'react';
 import { Card } from 'antd';
+import { isRequiredForA11y} from 'react-prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as selectCategoryActions from '../../actions/add-action.js';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import SearchTree from '../../components/SearchTree/index';
-import ParentCategoryInformation from '../../components/ParentCategoryInformation/index';
-import AddSubcategory from '../../components/AddSubcategory/index';
+import AddCategorySecondSteps from '../../components/AddCategorySecondSteps/index';
+import AddCategoryThirdSteps from '../../components/AddCategoryThirdSteps/index';
 import './index.scss'
 
 class AddCategory extends React.Component {
@@ -34,12 +35,17 @@ class AddCategory extends React.Component {
                     title:'MACBOOKPRO',
                     }]
                 },]
-                },],
+            },]
         }
     }
+
+    componentDidMount() {
+        this.props.actions.selectCategory([]);
+    }
+
     render() {
-        
-        // console.log(this.props);
+        console.log(this.props);
+
         return (
             <div className="add_category">
                 <Header />
@@ -58,15 +64,15 @@ class AddCategory extends React.Component {
                             <SearchTree gData={this.state.gData} selectCategory={this.props.actions.selectCategory}/>
                         </div>
                     </Card>
-                    {this.props.category[0]?
-                        <ParentCategoryInformation 
+                    {this.props.category.length>0?
+                        <AddCategorySecondSteps 
                             addSubcategory={this.props.actions.addSubcategory}
                             subcategory={this.props.subcategory}
-                            gData={this.state.gData}
+                            category={this.props.category}
                         />
                         :''}
                     
-                    {this.props.subcategory?<AddSubcategory />:''}
+                    {this.props.subcategory?<AddCategoryThirdSteps />:''}
                 </div>
                 
                 <Footer />
@@ -77,13 +83,14 @@ class AddCategory extends React.Component {
 
 
 AddCategory.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: isRequiredForA11y(React.PropTypes.object)
 };
 
 function mapStateToProps(state, props) {
   return {
     category: state.category,
-    subcategory: state.subcategory
+    subcategory: state.subcategory,
+    gdata: state.gdata
   };
 }
 

@@ -11,8 +11,14 @@ const menu = (
     <Menu.Item key="1">
       <Link to="/editCategory">编辑类别</Link>
     </Menu.Item>
+    <Menu.Item key="2">
+      <Link to="/addBrand">添加品牌</Link>
+    </Menu.Item>
+    <Menu.Item key="3">
+      <Link to="/editBrand">编辑品牌</Link>
+    </Menu.Item>
     <Menu.Divider />
-    <Menu.Item key="3">Help</Menu.Item>
+    <Menu.Item key="4">Help</Menu.Item>
   </Menu>
 );
 class Header extends React.Component {

@@ -110,7 +110,7 @@ class GroupTable extends React.Component {
     const {titles} = this.props;
 
     return (
-      <div className="group_table">
+      <div className="group_table" style={{width: this.props.width}}>
         <Table bordered 
             dataSource={dataSource}
             columns={columns}

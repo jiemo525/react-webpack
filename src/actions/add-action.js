@@ -13,3 +13,10 @@ export const addSubcategory = (subcategory) => {
         subcategory
     }
 }
+
+export const getGdata = (gdata) => {
+    return {
+        type: types.G_DATA,
+        gdata
+    }
+}

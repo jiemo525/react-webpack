@@ -1,10 +1,13 @@
+/**
+ * 添加类别第三步
+ */
 import React from 'react';
 import { Card, Button } from 'antd';
 import LabelBox from '../../components/LabelBox/index';
 import GroupTable from '../../components/GroupTable/index';
 import './index.scss';
 
-class AddSubcategory extends React.Component {
+class AddCategoryThirdSteps extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,9 +41,9 @@ class AddSubcategory extends React.Component {
                             <p>编辑子类别属性组、属性和属性值并保存，或选择跳过。</p>
                         </div>
                         <div className="content_category_details">
-                            <GroupTable dataSource={this.state.dataSource} titles='属性组'/>
-                            <GroupTable dataSource={this.state.dataSource} titles='属性'/>
-                            <GroupTable dataSource={this.state.dataSource} titles='属性值'/>
+                            <GroupTable dataSource={this.state.dataSource} titles='属性组' width={'32%'}/>
+                            <GroupTable dataSource={this.state.dataSource} titles='属性' width={'32%'}/>
+                            <GroupTable dataSource={this.state.dataSource} titles='属性值' width={'32%'}/>
                         </div>
                     </div>
                     <div className="second clearfix">
@@ -58,4 +61,4 @@ class AddSubcategory extends React.Component {
     }
 }
 
-export default AddSubcategory;
+export default AddCategoryThirdSteps;

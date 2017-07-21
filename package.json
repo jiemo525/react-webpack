@@ -94,6 +94,7 @@
     "babel-plugin-import": "^1.2.1",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.5.3",
+    "react-prop-types": "^0.4.0",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "sass-loader": "^6.0.6"

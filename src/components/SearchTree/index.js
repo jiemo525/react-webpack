@@ -55,10 +55,23 @@ class SearchTree extends React.Component {
     });
   }
 
+  getGdataInfo = (data, selectedKeys) => {
+    for(let i = 0; i < data.length; i++) {
+      if(data[i].key == selectedKeys){
+        this.props.selectCategory(data[i]);
+        return true;
+      }
+      if(data[i].children) {
+        this.getGdataInfo(data[i].children);
+      }
+    }
+  }
+
   onSelect = (selectedKeys, info) => {
     console.log('onSelect', info);
     this.setState({ selectedKeys });
-    this.props.selectCategory(selectedKeys);
+    const gdata = this.props.gData;
+    this.getGdataInfo(gdata, selectedKeys);
   }
 
   onChange = (e) => {

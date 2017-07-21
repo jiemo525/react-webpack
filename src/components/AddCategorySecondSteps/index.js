@@ -5,7 +5,7 @@ import React from 'react';
 import { Card, Button } from 'antd';
 import './index.scss';
 
-class ParentCategoryInformation extends React.Component {
+class AddCategorySecondSteps extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,11 +30,9 @@ class ParentCategoryInformation extends React.Component {
                         <p>确认父类别信息后，继续添加子类别或返回上一步。</p>
                     </div>
                     <div className="content_category_details">
-                        <p>产品名称：{this.state.name}</p>
-                        <p>产品名称：{this.state.name}</p>
-                        <p>产品名称：{this.state.name}</p>
-                        <p>产品名称：{this.state.name}</p>
-                        <p>产品名称：{this.state.name}</p>
+                        <p>产品ID：{this.props.category[0].key}</p>
+                        <p>产品名称：{this.props.category[0].title}</p>
+                        <p>产品描述：{this.props.category[0].title}</p>
                         
                         <Button type="primary" className="content_btn" onClick={this.clickAdd}>添加子类别</Button>
                     </div>
@@ -44,4 +42,4 @@ class ParentCategoryInformation extends React.Component {
     }
 }
 
-export default ParentCategoryInformation;
+export default AddCategorySecondSteps;

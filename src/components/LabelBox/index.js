@@ -80,7 +80,7 @@ class DynamicFieldSet extends React.Component {
               message: "未填写",
             }],
           })(
-            <Input placeholder="打标签" style={{ width: '80px', marginRight: 8, fontSize: '8px' }} />
+            <Input placeholder={`关键词${index+1}`} style={{ width: '80px', marginRight: 8, fontSize: '8px' }} />
           )}
           {keys.length > 1 ? (
             <Icon

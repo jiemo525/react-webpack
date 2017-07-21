@@ -57,10 +57,13 @@
 }
 
 .group_table {
-    width: 32%;
-    display: inline-block;
     float: left;
     margin-left: 8px;
+
+    .ant-table.ant-table-bordered .ant-table-title {
+      border: 0;
+    }
+
     .plus {
         display: inline-block;
         width: 100%;
@@ -74,6 +77,8 @@
             left: 45%;
         }
     }
+
+    
     .ant-input {
       width: 90%;
     }
