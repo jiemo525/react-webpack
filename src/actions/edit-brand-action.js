@@ -1,6 +1,7 @@
 import * as types from './action-types';
 
 export const selectStep2Switch = (editBrandStep2Switch) => {
+  console.log('selectStep2Switch')
   return {
         type: types.EDIT_BRAND_STEP2_SWITCH,
         editBrandStep2Switch

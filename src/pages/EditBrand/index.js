@@ -2,7 +2,7 @@
  * 编辑品牌页面
  */
 import React from 'react';
-import { Card, Input} from 'antd';
+import { Card, Input, Icon} from 'antd';
 import { isRequiredForA11y} from 'react-prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -11,6 +11,7 @@ import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import EditBrandSecondSteps from '../../components/EditBrandSecondSteps/index';
 import EditBrandThirdSteps from '../../components/EditBrandThirdSteps/index';
+import SearchInput from '../../components/SearchInput/index';
 import './index.scss'
 
 const Search = Input.Search;
@@ -43,7 +44,7 @@ class EditBrand extends React.Component {
         console.log(this.props);
 
         return (
-            <div className="add_category add_brand">
+            <div className="add_category edit_brand">
                 <Header />
                 <div className="content clearfix">
                     <h3>编辑模式 > 编辑品牌</h3>
@@ -57,11 +58,14 @@ class EditBrand extends React.Component {
                            <p>在现有品牌中检索，确认无重复后添加。</p>
                         </div>
                         <div className="search">
-                            <Search
+                            <SearchInput 
                                 placeholder="搜索"
                                 style={{ width: 600 }}
-                                onSearch={value => console.log(value)}
+                                className="search-input"
+                                selectStep2Switch={this.props.actions.selectStep2Switch}
+                                props={this.props}
                             />
+                            <Icon type="search" className="search-icon" style={{fontSize: 15}}/>                            
                         </div>
                     </Card>
                     {this.props.editBrandStep2Switch.length>0?
@@ -88,7 +92,6 @@ function mapStateToProps(state, props) {
   return {
     editBrandStep2Switch: state.editBrandStep2Switch,
     editBrandStep3Switch: state.editBrandStep3Switch,
-    gdata: state.gdata
   };
 }
 

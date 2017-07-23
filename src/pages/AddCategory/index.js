@@ -39,10 +39,6 @@ class AddCategory extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.actions.selectCategory([]);
-    }
-
     render() {
         console.log(this.props);
 
