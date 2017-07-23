@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import { Card, Button} from 'antd';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
+import '../styles/index.scss';
 import './index.scss';
 
 class App extends React.Component {

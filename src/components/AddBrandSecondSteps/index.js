@@ -15,7 +15,7 @@ class AddBrandSecondSteps extends React.Component {
     }
 
     clickAdd = () => {
-        this.props.addSubcategory(true);
+        this.props.selectStep2Switch(true);
     }
 
     render() {

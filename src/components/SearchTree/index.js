@@ -67,8 +67,8 @@ class SearchTree extends React.Component {
     }
   }
 
-  onSelect = (selectedKeys, info) => {
-    console.log('onSelect', info);
+  onSelect = (selectedKeys, info, extra) => {
+    console.log('onSelect%o:%o', info,extra);
     this.setState({ selectedKeys });
     const gdata = this.props.gData;
     this.getGdataInfo(gdata, selectedKeys);

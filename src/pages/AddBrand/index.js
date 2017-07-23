@@ -6,7 +6,7 @@ import { Card, Input, Button} from 'antd';
 import { isRequiredForA11y} from 'react-prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as selectCategoryActions from '../../actions/add-action.js';
+import * as selectCategoryActions from '../../actions/add-brand-action.js';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import AddBrandSecondSteps from '../../components/AddBrandSecondSteps/index';
@@ -38,12 +38,9 @@ class AddBrand extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.actions.selectCategory([]);
-    }
-
     clickAdd = () => {
-        this.props.actions.addSubcategory({key:'001', title:'MAC'});
+        console.log('add');
+        this.props.actions.selectStep2Switch({key:'001', title:'MAC'});
     }
 
     render() {
@@ -72,11 +69,9 @@ class AddBrand extends React.Component {
                             <Button type="primary" className="add_btn" onClick={this.clickAdd}>添加新品牌</Button>
                         </div>
                     </Card>
-                    {this.props.category.length>0?
+                    {this.props.addBrandStep2Switch.length>0?
                         <AddBrandSecondSteps 
-                            addSubcategory={this.props.actions.addSubcategory}
-                            subcategory={this.props.subcategory}
-                            category={this.props.category}
+                            selectStep2Switch={this.props.actions.selectStep2Switch}
                         />
                         :''}
                     
@@ -95,8 +90,8 @@ AddBrand.propTypes = {
 
 function mapStateToProps(state, props) {
   return {
-    category: state.category,
-    subcategory: state.subcategory,
+    addBrandStep2Switch: state.addBrandStep2Switch,
+    addBrandStep3Switch: state.addBrandStep3Switch,
     gdata: state.gdata
   };
 }
