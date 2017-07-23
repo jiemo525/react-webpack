@@ -8,7 +8,7 @@ import './index.scss';
 class EditBrandSecondSteps extends React.Component {
 
     clickEdit = () => {
-        this.props.addSubcategory(true);
+        this.props.selectStep2Switch(true);
     }
     render() {
         return (
@@ -22,9 +22,9 @@ class EditBrandSecondSteps extends React.Component {
                         <p>确认类别信息后，选择编辑或删除。</p>
                     </div>
                     <div className="content_category_details">
-                        <p>产品ID：{this.props.category[0].key}</p>
-                        <p>产品名称：{this.props.category[0].title}</p>
-                        <p>产品描述：{this.props.category[0].title}</p>
+                        <p>产品ID：{this.props.editBrandStep3Switch[0].key}</p>
+                        <p>产品名称：{this.props.editBrandStep3Switch[0].title}</p>
+                        <p>产品描述：{this.props.editBrandStep3Switch[0].title}</p>
                         
                         <Button type="primary" className="edit_btn" onClick={this.clickEdit}>编辑</Button>
                         <p className="sure_delete">确认删除</p>

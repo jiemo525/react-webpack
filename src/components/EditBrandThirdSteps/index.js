@@ -4,7 +4,6 @@
 import React from 'react';
 import { Card, Button } from 'antd';
 import LabelBox from '../../components/LabelBox/index';
-import GroupTable from '../../components/GroupTable/index';
 import './index.scss';
 
 class EditBrandThirdSteps extends React.Component {

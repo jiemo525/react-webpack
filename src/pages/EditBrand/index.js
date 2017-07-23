@@ -6,7 +6,7 @@ import { Card, Input} from 'antd';
 import { isRequiredForA11y} from 'react-prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as selectCategoryActions from '../../actions/add-action.js';
+import * as selectCategoryActions from '../../actions/edit-category-action.js';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import EditBrandSecondSteps from '../../components/EditBrandSecondSteps/index';
@@ -39,10 +39,6 @@ class EditBrand extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.actions.selectCategory([]);
-    }
-
     render() {
         console.log(this.props);
 
@@ -68,14 +64,13 @@ class EditBrand extends React.Component {
                             />
                         </div>
                     </Card>
-                    {this.props.category.length>0?
+                    {this.props.editBrandStep2Switch.length>0?
                         <EditBrandSecondSteps 
-                            addSubcategory={this.props.actions.addSubcategory}
-                            subcategory={this.props.subcategory}
-                            category={this.props.category}
+                            selectStep2Switch={this.props.actions.selectStep2Switch}
+                            editBrandStep3Switch={this.props.editBrandStep3Switch}
                         />
                         :''}
-                    {this.props.subcategory?<EditBrandThirdSteps />:''}
+                    {this.props.editBrandStep3Switch?<EditBrandThirdSteps />:''}
                 </div>
                 
                 <Footer />
@@ -91,8 +86,8 @@ EditBrand.propTypes = {
 
 function mapStateToProps(state, props) {
   return {
-    category: state.category,
-    subcategory: state.subcategory,
+    editBrandStep2Switch: state.editBrandStep2Switch,
+    editBrandStep3Switch: state.editBrandStep3Switch,
     gdata: state.gdata
   };
 }

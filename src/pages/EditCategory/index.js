@@ -6,7 +6,7 @@ import { Card } from 'antd';
 import { isRequiredForA11y} from 'react-prop-types';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as selectCategoryActions from '../../actions/add-action.js';
+import * as selectCategoryActions from '../../actions/edit-category-action.js';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import SearchTree from '../../components/SearchTree/index';
@@ -54,18 +54,18 @@ class EditCategory extends React.Component {
                            <p>输入类别ID、类别名称或关键字进行搜索并从搜索结果中选择类别。</p>
                         </div>
                         <div className="search">
-                            <SearchTree gData={this.state.gData} selectCategory={this.props.actions.selectCategory}/>
+                            <SearchTree gData={this.state.gData} selectCategory={this.props.actions.selectStep2Switch}/>
                         </div>
                     </Card>
-                    {this.props.category.length>0?
+                    {this.props.editCategoryStep2Switch.length>0?
                         <EditCategorySecondSteps 
-                            addSubcategory={this.props.actions.addSubcategory}
-                            subcategory={this.props.subcategory}
-                            category={this.props.category}
+                            selectStep3Switch={this.props.actions.selectStep3Switch}
+                            editCategoryStep3Switch={this.props.editCategoryStep3Switch}
+                            editCategoryStep2Switch={this.props.editCategoryStep2Switch}
                         />
                         :''}
                     
-                    {this.props.subcategory?<EditCategoryThirdSteps />:''}
+                    {this.props.editCategoryStep3Switch?<EditCategoryThirdSteps />:''}
                 </div>
                 
                 <Footer />
@@ -81,8 +81,8 @@ EditCategory.propTypes = {
 
 function mapStateToProps(state, props) {
   return {
-    category: state.category,
-    subcategory: state.subcategory,
+    editCategoryStep2Switch: state.editCategoryStep2Switch,
+    editCategoryStep3Switch: state.editCategoryStep3Switch,
     gdata: state.gdata
   };
 }
