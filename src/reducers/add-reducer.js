@@ -1,10 +1,13 @@
+/**
+ * 
+ */
 import * as types from '../actions/action-types';
 
-export default (state = '', action) => {
+export default (state = [], action) => {
   switch (action.type) {
-    case types.ADD_SUBCATEGORY:
-      return action.subcategory;
+    case types.ADD_ACTION:
+      return [action.add];
     default:
       return state;
   }
-};
+}
