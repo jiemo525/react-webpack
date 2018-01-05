@@ -30,3 +30,7 @@ table { border-collapse:collapse; border-spacing:0; }
 .floatLeft {
     float: left;
 }
+
+#root, #root > div {
+    height: 100%;
+}

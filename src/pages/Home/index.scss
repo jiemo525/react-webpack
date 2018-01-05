@@ -1,8 +1,15 @@
 .home {
+    height: 100%;
+    .ant-layout {
+        height: 100%;
+    }
     .content {
         width: 1024px;
-        height: 900px;
+        // height: 100%-$h;
         margin: 0 auto;
         padding: 50px 31px;
+    }
+    .ant-layout-content {
+        height: 100%;
     }
 }

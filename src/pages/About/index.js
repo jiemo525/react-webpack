@@ -2,42 +2,38 @@
  * 
  */
 import React from 'react';
-import { Card } from 'antd';
+import {connect} from 'react-redux'
+import {  Layout, Card } from 'antd';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as selectCategoryActions from '../../actions/add-action.js';
+import LineBar from '../../components/LineBar';
+import Line from '../../components/Line';
+import { selectCategory } from '../../actions/add-action';
+import G2 from '@antv/g2';
+
+const { Header, Footer, Sider, Content } = Layout;
 
 class About extends React.Component {
 
     render() {
-        console.log(this.props);
-
+        console.log(this.props.dispatch);
+        this.props.dispatch(selectCategory(1));
         return (
-            <div>
-                <Card>
-                    About
-                </Card>
+            <div className="home">
+                <Layout>
+                    <Header>Header</Header>
+                    <Content>
+                        <div className="content">
+                            <LineBar />
+                            <Line />
+                        </div>
+                    </Content>
+                    <Footer>Footer</Footer>
+                </Layout>
+
             </div>
+
         );
     }
 }
 
-
-About.propTypes = {
-    actions: PropTypes.object
-};
-
-function mapStateToProps(state, props) {
-    return {
-        add: state.add,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(selectCategoryActions, dispatch)
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(About);
+export default connect()(About)
