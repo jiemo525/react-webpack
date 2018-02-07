@@ -2,22 +2,18 @@
  * 
  */
 import React from 'react';
-import { Card } from 'antd';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as selectCategoryActions from '../../actions/add-action.js';
+import Fullpage from '../../components/Fullpage';
 
 class About extends React.Component {
 
     render() {
-        console.log(this.props);
-
         return (
             <div>
-                <Card>
-                    About
-                </Card>
+                <Fullpage />
             </div>
         );
     }
