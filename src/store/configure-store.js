@@ -13,11 +13,10 @@
 
 import {createStore, applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga';
-// import rootSaga from '../sagas';
-import hello from '../sagas/index.js';
+import watchIncrementAsync from '../sagas';
 import rootReducer from '../reducers';
 
-const sagaMiddleware = createSagaMiddleware(hello)
+const sagaMiddleware = createSagaMiddleware(watchIncrementAsync)
 
 // sagaMiddleware.run(rootSaga)
 

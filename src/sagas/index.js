@@ -1,4 +1,4 @@
-import {take, call, put, fork, race} from 'redux-saga/effects'
+import {take, call, put, fork, race, takeEvery} from 'redux-saga/effects'
 import * as types from '../actions/action-types';
 
 // export function* loginFlow() {
@@ -14,3 +14,7 @@ import * as types from '../actions/action-types';
 export default function* hello() {
     console.log('hello');
 }
+
+export function* watchIncrementAsync() {
+    yield* takeEvery('ADD_ACTION', hello)
+  }

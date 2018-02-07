@@ -10,6 +10,7 @@ import './index.scss';
 const { Header, Footer, Sider, Content } = Layout;
 
 class App extends React.Component {
+ 
   render() {
     return (
       <div className="home">
@@ -20,6 +21,7 @@ class App extends React.Component {
               <Link to='/about'>
                 <Button type="primary" size="large">按钮</Button>
               </Link>
+             
             </div>
           </Content>
           <Footer>Footer</Footer>

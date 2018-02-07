@@ -3,17 +3,20 @@
  */
 import React from 'react';
 import {connect} from 'react-redux'
-import {  Layout, Card } from 'antd';
+import {  Layout, Card, Button } from 'antd';
 import PropTypes from 'prop-types';
 import LineBar from '../../components/LineBar';
 import Line from '../../components/Line';
 import { selectCategory } from '../../actions/add-action';
+// import { hello } from '../../sagas/index.js';
 import G2 from '@antv/g2';
 
 const { Header, Footer, Sider, Content } = Layout;
 
 class About extends React.Component {
-
+    addFun = () => {
+        console.log('addFun');
+    }
     render() {
         console.log(this.props.dispatch);
         this.props.dispatch(selectCategory(1));
@@ -25,6 +28,7 @@ class About extends React.Component {
                         <div className="content">
                             <LineBar />
                             <Line />
+                            <Button type="primary" size="large" onClick={this.addFun}>按钮+1</Button>
                         </div>
                     </Content>
                     <Footer>Footer</Footer>
