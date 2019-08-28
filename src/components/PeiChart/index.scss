@@ -1,0 +1,79 @@
+.pei-chart {
+  display: flex;
+  flex-direction: row;
+
+  #main {
+    width: 400px;
+    height: 300px;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+    .left-btn, .right-btn  {
+      width: 45px;
+      height: 85px;
+      background: rgba(0, 198, 82, 0.10);
+      border-radius: 2px;
+      margin: auto;
+      
+      i {
+        margin: 35px 0 0 12px;
+      }
+    } 
+
+    .no-click-btn {
+      background: rgba(98, 117, 127, 0.10);
+      &:hover{
+        cursor:  not-allowed;;
+      }
+    }
+
+    .middle-content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 65px;
+      width: 100%;
+      margin: auto;
+
+      .about-left-btn-item {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.54);
+        text-align: left;
+        line-height: 36px;
+        cursor: pointer;
+        text-align: center;
+
+        .about-legend-icon {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border-radius: 3px; 
+          margin-right: 5px;
+        }
+      }
+
+      .no-item {
+        font-size: 12px;
+        color: #ccc;
+        text-align: center;
+        .about-legend-icon {
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          border-radius: 3px; 
+          margin-right: 5px;
+        }
+      }
+    }
+
+
+    
+  }
+}
